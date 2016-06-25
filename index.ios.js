@@ -12,20 +12,36 @@ import {
   View
 } from 'react-native';
 
+import './global';
+import cryptoExample from './crypto_example';
+
 class ReactNativify extends Component {
+
+  state = {
+    result: null,
+  };
+
+  componentDidMount() {
+    process.nextTick(() => {
+      cryptoExample((result) => this.setState({result}));
+    });
+  }
+
   render() {
+    let result;
+    if (this.state.result === null) {
+      result = 'waiting...';
+    } else if (this.state.result) {
+      result = 'success!';
+    } else {
+      result = 'failed.';
+    }
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <Text>Result: {result}</Text>
       </View>
     );
   }
