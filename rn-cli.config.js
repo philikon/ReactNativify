@@ -12,8 +12,9 @@ module.exports = {
    * additional directories.
    *
    * This is very handy when you maintain all your software in one big
-   * repo, which means your app's dependencies aren't necessary
-   * present in `node_modules/`.
+   * repo, which means your app's dependencies aren't necessarily just
+   * located in `./node_modules` but potentially in sibling
+   * directories or other locations.
    */
   getProjectRoots() {
     return [__dirname];

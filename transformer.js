@@ -9,7 +9,7 @@ const babelRC = {
   presets: [require('babel-preset-react-native')],
   plugins: [
     // The following plugin will rewrite imports. Reimplementations of node
-    // libraries such as `assert`, `browser`, etc. will be picked up
+    // libraries such as `assert`, `buffer`, etc. will be picked up
     // automatically by the React Native packager.  All other built-in node
     // libraries get rewritten to their browserify counterpart.
     [require('babel-plugin-rewrite-require'), {
@@ -38,7 +38,7 @@ const babelRC = {
         vm: 'vm-browserify',
         zlib: 'browserify-zlib',
 
-        // You can add your own, much like web app aliases:
+        // You can add your own, much like webpack aliases:
         'corporate-lib': 'corporate-lib-react-native',
       },
       throwForNonStringLiteral: true,
