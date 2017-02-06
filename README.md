@@ -36,7 +36,7 @@ The React Native packager is extremely sensitive to the following scenarios:
 
 - Missing files. While webpack, for instance, will happily soldier on if a `require()`ed file is missing, the React Native packager will abort during dependency resolution. I've tried to address that with a couple of configuration options in [babel-plugin-rewrite-require](https://www.npmjs.com/package/babel-plugin-rewrite-require), but YMMV.
 
-- Symlinks. In development mode, the React Native packager *server* won't resolve symlinks but the *bundler* for release mode will. Rather than relying on symlinks, I'd recommend adding additional directories to the packager's search path via `getProjectRoots` and `getAssetRoots` in `rn-cli.config.js`.
+- Symlinks. The the React Native packager resolves symlinks differently when running the *server* development compared to running the *bundler* in release mode. Rather than relying on symlinks, I'd recommend adding additional directories to the packager's search path via `getProjectRoots` in `rn-cli.config.js`. Ideally, all your packages are to be found in one big directory tree anyway, whose root might as well be the packager's project root.
 
 - Duplicate modules. Don't let the React Native packager discover multiple installations of React Native, for instance. Node has a fairly logical module resolution pattern, the React Native packager is more of a breadth-first algorithm. Also, node.js cares about the directory name under `node_modules` whereas the React Native packager cares about what `package.json` says. Best to ensure those always match.
 
