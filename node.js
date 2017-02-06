@@ -2,5 +2,7 @@
 // regular node, e.g. `node node.js`
 
 const cryptoExample = require('./crypto_example');
+const bitcoinExample = require('./bitcoin_example');
 
-cryptoExample((result) => console.log('Result: ' + result));
+cryptoExample((result) => console.log('Crypto result: ' + result));
+bitcoinExample((result) => console.log('Bitcoin result: ' + result));

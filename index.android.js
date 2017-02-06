@@ -12,36 +12,17 @@ import {
   View
 } from 'react-native';
 
-import './global';
-import cryptoExample from './crypto_example';
+import ReactNativeExamples from './rn';
 
 class ReactNativify extends Component {
 
-  state = {
-    result: null,
-  };
-
-  componentDidMount() {
-    process.nextTick(() => {
-      cryptoExample((result) => this.setState({result}));
-    });
-  }
-
   render() {
-    let result;
-    if (this.state.result === null) {
-      result = 'waiting...';
-    } else if (this.state.result) {
-      result = 'success!';
-    } else {
-      result = 'failed.';
-    }
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Text>Result: {result}</Text>
+        <ReactNativeExamples />
       </View>
     );
   }
