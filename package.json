@@ -6,9 +6,9 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "react": "15.2.0",
-    "react-native": "0.30.0-rc.0",
+    "react": "15.4.2",
+    "react-native": "0.42.0-rc.1",
     "node-libs-browser": "1.0.0",
-    "babel-plugin-rewrite-require": "0.20.0"
+    "babel-plugin-rewrite-require": "1.9.0"
   }
 }
