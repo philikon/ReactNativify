@@ -40,6 +40,10 @@ const babelRC = {
 
         // You can add your own, much like webpack aliases:
         'corporate-lib': 'corporate-lib-react-native',
+
+        // You can also mock any libraries that you don't need to support on
+        // React Native, but have to be present for 3rd party code to work:
+        'some-third-party-dependency': 'node-libs-browser/mock/empty',
       },
       throwForNonStringLiteral: true,
     }],
