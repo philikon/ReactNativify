@@ -4,7 +4,7 @@ const assert = require('assert');
 const crypto = require('crypto');
 const stream = require('stream');
 
-module.exports = function example(callback) {
+module.exports = function example() {
   const alice = crypto.createDiffieHellman(256);
   const bob = crypto.createDiffieHellman(alice.getPrime(), alice.getGenerator());
 
@@ -36,7 +36,9 @@ module.exports = function example(callback) {
 
   input.pipe(cipher).pipe(decipher).pipe(output);
 
-  output.on('finish', function () {
-    callback(outputData === inputData);
+  return new Promise((resolve) => {
+    output.on('finish', function () {
+      resolve(outputData === inputData);
+    });
   });
 };

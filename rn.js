@@ -5,18 +5,21 @@ import './global';
 
 import cryptoExample from './crypto_example';
 import bitcoinExample from './bitcoin_example';
+import httpExample from './http_example';
 
 export default class ReactNativeExamples extends Component {
 
   state = {
     crypto: null,
     bitcoin: null,
+    http: null,
   };
 
   componentDidMount() {
     process.nextTick(() => {
-      cryptoExample((crypto) => this.setState({crypto}));
-      bitcoinExample((bitcoin) => this.setState({bitcoin}));
+      cryptoExample().then((crypto) => this.setState({crypto}));
+      bitcoinExample().then((bitcoin) => this.setState({bitcoin}));
+      httpExample().then((http) => this.setState({http}));
     });
   }
 
@@ -35,6 +38,7 @@ export default class ReactNativeExamples extends Component {
       <View>
         <Text>Crypto: {this._renderResult(this.state.crypto)}</Text>
         <Text>Bitcoin: {this._renderResult(this.state.bitcoin)}</Text>
+        <Text>HTTP: {this._renderResult(this.state.http)}</Text>
       </View>
     );
   }

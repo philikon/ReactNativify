@@ -3,6 +3,16 @@
 
 const cryptoExample = require('./crypto_example');
 const bitcoinExample = require('./bitcoin_example');
+const httpExample = require('./http_example');
 
-cryptoExample((result) => console.log('Crypto result: ' + result));
-bitcoinExample((result) => console.log('Bitcoin result: ' + result));
+process.on('exit', () => undefined);
+
+Promise.all([
+  cryptoExample(),
+  bitcoinExample(),
+  httpExample(),
+]).then(([crypto, bitcoin, http]) => {
+  console.log('Crypto result: ' + crypto);
+  console.log('Bitcoin result: ' + bitcoin);
+  console.log('HTTP result: ' + http);
+});
