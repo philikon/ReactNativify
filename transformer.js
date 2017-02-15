@@ -19,7 +19,7 @@ const babelRC = {
         dns: 'node-libs-browser/mock/dns',
         domain: 'domain-browser',
         fs: 'node-libs-browser/mock/empty',
-        http: 'http-browserify',
+        http: 'stream-http',
         https: 'https-browserify',
         net: 'node-libs-browser/mock/net',
         os: 'os-browserify/browser',

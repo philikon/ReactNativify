@@ -8,7 +8,7 @@
   "dependencies": {
     "babel-plugin-rewrite-require": "1.9.0",
     "bitcoinjs-lib": "^2.3.0",
-    "node-libs-browser": "1.0.0",
+    "node-libs-browser": "2.0.0",
     "react": "15.4.2",
     "react-native": "0.42.0-rc.1"
   }
